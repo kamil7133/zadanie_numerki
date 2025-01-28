@@ -1,18 +1,22 @@
 class Kolejka:
     def __init__(self):
-        pass
+        self.elementy = []
 
     def enqueue(self, item):
-        pass
+        self.elementy.append(item)
 
     def dequeue(self):
-        pass
+        if self.is_empty():
+            return None
+        return self.elementy.pop(0)
 
     def front(self):
-        pass
+        if self.is_empty():
+            return None
+        return self.elementy[0]
 
     def is_empty(self):
-        pass
+        return len(self.elementy) == 0
 
     def size(self):
-        pass
+        return len(self.elementy)
