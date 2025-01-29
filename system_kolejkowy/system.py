@@ -2,14 +2,13 @@ from zadanie_numerki.system_kolejkowy.kolejka import Kolejka
 from zadanie_numerki.system_kolejkowy.klient import Klient
 
 class System:
-    def __init__(self, historia):
+    def __init__(self):
         self.kolejki = {
             'A': Kolejka(),
             'B': Kolejka(),
             'C': Kolejka(),
             'D': Kolejka()
         }
-
         self.historia = {
             'A': [],
             'B': [],
@@ -17,14 +16,13 @@ class System:
             'D': []
         }
 
-
     def dodaj_klienta(self, kategoria, klient):
         if kategoria in self.kolejki:
             self.kolejki[kategoria].enqueue(klient)
         else:
             print(f"Nieznana kategorai: {kategoria}")
 
-    def obsluz_klienta(self, kategoria):
+    def obsluz_klienta(self, kategoria, aktualny_czas):
         if self.kolejki[kategoria].is_empty():
             return None
 

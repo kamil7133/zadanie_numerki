@@ -6,3 +6,4 @@ class Klient:
     def __repr__(self):
         return f"klient {self.id} ({self.kategoria})"
 
+    # każdy klient zajmuje inna ilosc czasu//do implementacji
