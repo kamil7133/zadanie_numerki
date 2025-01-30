@@ -18,14 +18,19 @@ while czas_symulacji < max_czas:
             kategoria=kategoria
         )
         system.dodaj_klienta(kategoria, nowy_klient)
+        print(f"[+] Dodano klienta {id_klienta} do kolejki {kategoria}")
 
 
 
     # 20% szans na obsłużenie klienta
     for kat in ["A", "B", "C", "D"]:
         if random.random() < 0.2:
-            system.obsluz_klienta(kat, czas_symulacji)
-
+            obsluzony_klient = system.obsluz_klienta(kat, czas_symulacji)
+            if obsluzony_klient:
+                print(
+                    f"[*] Obsłużono klienta {obsluzony_klient.id}"
+                    f"(kategoria {kat}, czas obslugi: {obsluzony_klient.czas_obslugi}s)"
+                )
     if czas_symulacji % 5 == 0:
         print(f"\n--- Czas: {czas_symulacji}s ---")
         stan = system.akutalny_stan()
